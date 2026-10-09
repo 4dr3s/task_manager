@@ -10,18 +10,23 @@ def main():
     task_manager = TaskManager()
     opcion = 0
     while(opcion != 5):
-        opcion = int(input("Ingrese una opción: "))
-        match(opcion):
-            case 1:
-                add_task(task_manager)
-            case 2:
-                task_manager.list_tasks()
-            case 3:
-                complete_task(task_manager)
-            case 4:
-                delete_task(task_manager)
-            case 5:
-                print("--- Programa Terminado ---")
+        try:
+            opcion = int(input("Ingrese una opción: "))
+            match(opcion):
+                case 1:
+                    add_task(task_manager)
+                case 2:
+                    task_manager.list_tasks()
+                case 3:
+                    complete_task(task_manager)
+                case 4:
+                    delete_task(task_manager)
+                case 5:
+                    print("--- Programa Terminado ---")
+                case _:
+                    print("Opción no válida")
+        except ValueError:
+            print(f"Error inesperado, opción no valida")
     
 def add_task(task_manager: TaskManager):
     description = input("Ingrese la descripción de la Tarea: ")
