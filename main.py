@@ -22,7 +22,7 @@ def main():
                     subtasks = create_simple_task(description)
                     for substask in subtasks:
                         if not substask.startswith("Error:"):
-                            add_task_with_description(task_manager)
+                            add_task_with_description(task_manager, description)
                         else:
                             print(substask)
                             break
