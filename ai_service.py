@@ -31,16 +31,17 @@ Responde solo con la lista de subtareas, una por línea, empezando cada línea c
         response = client.chat.completions.create(**params)
         content = response.choices[0].message.content.strip()
 
-        substacks = []
+        subtasks = []
 
         for line in content.split("\n"):
             line = line.strip()
             if line and line.startswith("-"):
-                substack = line[1:].strip()
-                if substacks:
-                    substacks.append(substacks)
+                # subtask = line.replace("-", "").strip()
+                subtask = line[1:].strip()
+                if subtask:
+                    subtasks.append(subtask)
 
-        return substacks if substacks else ["Error: No se han podido generar las subtareas"]
+        return subtasks if subtasks else ["Error: No se han podido generar las subtareas"]
 
     except Exception:
         return ["Error: No se ha podido conectar con OpenAI"]
