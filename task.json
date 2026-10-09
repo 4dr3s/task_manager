@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "description": "Desayuno",
+        "completed": false
+    },
+    {
+        "id": 2,
+        "description": "Estudio",
+        "completed": false
+    }
+]
